@@ -3,12 +3,21 @@
 <div class="col-12 col-lg-6 grid-margin">
     <div class="card">
         <div class="card-body">
-            <h2 class="card-title">Student Registration Form</h2>  
+            <h2 class="card-title">Student Registration Form</h2> 
+            <p class="alert-success">
+              <?php
+              $exception = session('exception');
+              if ($exception) {
+                  echo $exception;
+                  session()->forget('exception'); // Use session()->forget to remove the session variable
+              }
+              ?>
+          </p> 
             <form action="{{URL::to('/save_student')}}" method="post" enctype="multipart/form-data" class="forms-sample">
                 @csrf
                 <div class="form-group">
                     <label for="studentId">Student ID</label>
-                    <input type="text" class="form-control p-input" id="studentId" name="student_name" placeholder="Enter Student Id" required>
+                    <input type="text" class="form-control p-input" id="studentId" name="student_id" placeholder="Enter Student Id" required>
                 </div>
                 <div class="form-group">
                     <label for="studentName">Student Name</label>
