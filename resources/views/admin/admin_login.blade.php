@@ -28,17 +28,27 @@
           <div class="card col-lg-4 mx-auto">
             <div class="card-body px-5 py-5">
               <h3 class="card-title text-left mb-3">Login</h3>
+              <p class="alert-danger">
+              <?php
+              $exception = session('exception');
+              if ($exception) {
+                  echo $exception;
+                  session()->forget('exception'); // Use session()->forget to remove the session variable
+              }
+              ?>
+          </p>
               <form method="post" action="dashboard" >
               @csrf
                 <div class="form-group">
                   <label>Username or email *</label>
                   <input type="text" class="form-control p_input" name="admin_email">
                  
+                 
                 </div>
                 <div class="form-group">
                   <label>Password *</label>
                   <input type="text" class="form-control p_input"  name="admin_password">
-                  
+                
                 </div>
                 <div class="form-group d-flex align-items-center justify-content-between">
                   <div class="icheck-square">
