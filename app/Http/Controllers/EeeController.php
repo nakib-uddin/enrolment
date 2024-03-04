@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Eee;
+use App\Models\Addstudent;
 use Illuminate\Http\Request;
 
 class EeeController extends Controller
@@ -10,7 +11,8 @@ class EeeController extends Controller
    
     public function eee()
     {
-        return view('admin.eee');
+        $eeetudent = Addstudent::where('student_department', 'EEE')->get();
+        return view('admin.eee', ['eeetudent' => $eeetudent]);
     }
     /**
      * Display a listing of the resource.

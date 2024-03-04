@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Addstudent;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Hash;
@@ -33,37 +32,27 @@ class AddstudentController extends Controller
      */
     public function store(Request $request)
     {
-         // Define the validation rules
-      $data = [
-        'student_id' => 'required|unique:students',
-        'student_name' => 'required',
-        'student_roll' => 'required',
-        'student_fathername' => 'required',
-        'student_mothername' => 'required',
-        'student_email' => 'required|email|unique:students',
-        'student_phone' => 'required',
-        'student_department' => 'required',
-        'student_address' => 'required',
-        'student_year' => 'required',
-        'student_password' => 'required',
-        'student_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-    ];
-
-         // Create a validator instance
-      $validator = Validator::make($request->all(), $data);
-      
-      // Check if validation fails
-      if ($validator->fails()) {
-          return response()->json(['errors' => $validator->errors()], 422);
-      }
-
+        $data = $request->validate([
+            'student_id' => 'required|unique:students',
+            'student_name' => 'required',
+            'student_roll' => 'required',
+            'student_fathername' => 'required',
+            'student_mothername' => 'required',
+            'student_email' => 'required|email|unique:students',
+            'student_phone' => 'required',
+            'student_department' => 'required',
+            'student_address' => 'required',
+            'student_year' => 'required',
+            'student_password' => 'required',
+            'student_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+        
         // Handle file upload if an image is provided
         if ($request->hasFile('student_image')) {
             $imagePath = $request->file('student_image')->store('student_images', 'public');
             $data['student_image'] = $imagePath;
         }
-              // Continue with your logic if validation succeeds
-
+        
         if($data){
             $newStudent = Addstudent::create($data);
             Session::put('exception','Student Added Succesfully');

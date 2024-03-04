@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cse;
+use App\Models\Addstudent;
 use Illuminate\Http\Request;
 
 class CseController extends Controller
@@ -10,7 +11,10 @@ class CseController extends Controller
 
     public function cse()
     {
-        return view('admin.cse');
+
+        $csestudent = Addstudent::where('student_department', 'CSE')->get();
+        return view('admin.cse', ['csestudent' => $csestudent]);
+        //return view('admin.cse');
     }
     /**
      * Display a listing of the resource.

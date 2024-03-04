@@ -48,11 +48,11 @@
     <label for="studentDepartment">Department</label>
     <select class="form-control p-input" id="studentDepartment" name="student_department" required>
         <option value="">Select Department</option>
-        <option value="1">CSE</option>
-        <option value="2">EEE</option>
-        <option value="3">ETE</option>
-        <option value="4">BBA</option>
-        <option value="5">PHARMACY</option>
+        <option value="CSE">CSE</option>
+        <option value="EEE">EEE</option>
+        <option value="ETE">ETE</option>
+        <option value="BBA">BBA</option>
+        <option value="PHARMACY">PHARMACY</option>
         <!-- Add more options as needed -->
     </select>
 </div>

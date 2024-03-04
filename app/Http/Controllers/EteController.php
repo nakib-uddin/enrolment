@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ete;
+use App\Models\Addstudent;
 use Illuminate\Http\Request;
 
 class EteController extends Controller
@@ -10,7 +11,8 @@ class EteController extends Controller
     
     public function ete()
     {
-        return view('admin.ete');
+        $etestudent = Addstudent::where('student_department', 'ETE')->get();
+        return view('admin.ete', ['etestudent' => $etestudent]);
     }
     /**
      * Display a listing of the resource.

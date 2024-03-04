@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bba;
+use App\Models\Addstudent;
 use Illuminate\Http\Request;
 
 class BbaController extends Controller
@@ -12,7 +13,8 @@ class BbaController extends Controller
      */
     public function bba()
     {
-        return view('admin.bba');
+        $bbatudent = Addstudent::where('student_department', 'BBA')->get();
+        return view('admin.bba', ['bbatudent' => $bbatudent]);
     }
     public function index()
     {

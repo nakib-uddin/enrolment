@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pharmacy;
+use App\Models\Addstudent;
 use Illuminate\Http\Request;
 
 class PharmacyController extends Controller
@@ -10,7 +11,8 @@ class PharmacyController extends Controller
     
     public function pharmacy()
     {
-        return view('admin.pharmacy');
+        $pharmacystudent = Addstudent::where('student_department', 'PHARMACY')->get();
+        return view('admin.pharmacy', ['pharmacystudent' => $pharmacystudent]);
     }
     /**
      * Display a listing of the resource.

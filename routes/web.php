@@ -38,9 +38,20 @@ Route::post('/dashboard', [AdminController::class, 'customLogin'])->name('dashbo
 Route::get('/admindashboard', [AdminController::class, 'dashboard'])->name('/admindashboard');
 Route::get('/viewprofile', [AdminController::class, 'view'])->name('/viewprofile');
 Route::get('/setting', [AdminController::class, 'setting'])->name('/setting');
+//add student
 Route::get('/addstudent', [AddstudentController::class, 'addstudent'])->name('/addstudent');
 Route::post('/save_student', [AddstudentController::class, 'store'])->name('/save_student');
+//all student
 Route::get('/allstudent', [AllstudentController::class, 'allstudent'])->name('/allstudent');
+Route::delete('/delete/{allstudent}', [AllstudentController::class, 'destroy'])->name('/student_destroy');
+Route::get('/studentview/{allstudent}', [AllstudentController::class, 'studentview'])->name('/studentview');
+Route::get('/studentedit/{allstudent}', [AllstudentController::class, 'studentedit'])->name('/studentedit');
+Route::post('/update_student/{allstudent}', [AllstudentController::class, 'update'])->name('update_student');
+
+
+
+
+
 
 
 Route::get('/tutionfee', [TutionController::class, 'tutionfee'])->name('/tutionfee');
