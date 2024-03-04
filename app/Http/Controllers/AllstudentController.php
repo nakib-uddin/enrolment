@@ -72,13 +72,17 @@ class AllstudentController extends Controller
             'student_address' => 'required',
             'student_year' => 'required',
             'student_password' => 'required',
+            'student_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+        // if ($request->hasFile('student_image')) {
+        //     $imagePath = $request->file('student_image')->store('student_images', 'public');
+        //     $data['student_image'] = $imagePath;
+        // }
     
         // Update other fields
-        $allstudent->update($data);
-    
+         Addstudent::where('id', $allstudent->id)->update($data);
         // Redirect with a success message
-        return redirect()->route('allstudent')->with('success', 'Student information updated successfully');
+        return redirect()->route('/allstudent', ['allstudent' => $allstudent->id])->with('success', 'Student information updated successfully');
     }
     
 
