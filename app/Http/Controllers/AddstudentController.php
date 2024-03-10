@@ -70,10 +70,11 @@ class AddstudentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Addstudent $addstudent)
-    {
-        //
-    }
+    // public function showStudents()
+    // {
+    //     $allstudent = Addstudent::all();
+    //     return view('admin.dashboard', compact('allstudent'));
+    // }
 
     /**
      * Show the form for editing the specified resource.

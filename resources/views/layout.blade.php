@@ -7,7 +7,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Salt Admin</title>
+  <title>S-E-S</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{asset('node_modules/mdi/css/materialdesignicons.min.css')}}">
   <link rel="stylesheet" href="{{asset('node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css')}}">
@@ -200,6 +200,11 @@
                 <ul class="nav flex-column sub-menu">
                 
                   <li class="nav-item">
+                  <a class="nav-link" href="{{URL::to('/addteacher')}}">
+                  <i class="mdi mdi-puzzle menu-icon"></i>
+                 <span class="menu-title">Add Teacher</span>
+                 <span class="badge badge-danger badge-pill ml-auto"> New </span>
+                    </a>
                     <a class="nav-link" href="{{URL::to('/allteacher')}}">
                    All Teacher
                     </a>
@@ -210,6 +215,9 @@
             </li>
           </ul>
         </nav>
+
+
+        
         <!-- partial -->
         <div class="content-wrapper">
           <div class="row">
@@ -225,7 +233,7 @@
         <footer class="footer">
           <div class="container-fluid clearfix">
             <span class="float-right">
-                <a href="{{URL::to('/admindashboard')}}">Salt Admin</a> &copy; 2017
+                <a href="{{URL::to('/admindashboard')}}">Salt Admin</a> &copy; 2024
             </span>
           </div>
         </footer>

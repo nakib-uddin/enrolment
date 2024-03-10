@@ -13,7 +13,7 @@
               }
               ?>
           </p> 
-            <form action="{{ route('update_student', ['allstudent' => $allstudent->id]) }}" method="post" class="forms-sample">
+            <form action="{{ route('/update_student', ['allstudent' => $allstudent->id]) }}" method="post" class="forms-sample">
                 @csrf
                 <div class="form-group">
                     <label for="studentId">Student ID</label>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-group">
     <label for="studentDepartment">Department</label>
-    <select class="form-control p-input" id="studentDepartment" name="student_department" disabled>
+    <select class="form-control p-input" id="studentDepartment" name="student_department" readonly>
     <option value="{{ $allstudent->student_department }}" selected>{{ $allstudent->student_department }}</option>
 </select>
 </div>
@@ -68,6 +68,4 @@
         </div>
     </div>
 </div>
-
-
 @endsection
